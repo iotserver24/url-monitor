@@ -1,0 +1,46 @@
+{
+  "name": "url-mon",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/create-default-logo.js && rm -rf .next && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build:worker": "esbuild ./worker/index.ts --bundle --outfile=dist/worker.js --format=esm --platform=browser",
+    "worker:dev": "wrangler dev",
+    "worker:deploy": "npm run build:worker && wrangler deploy"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/supabase-js": "^2.48.1",
+    "chart.js": "^4.4.7",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.4.7",
+    "next": "15.1.6",
+    "node-cron": "^3.0.3",
+    "node-mailer": "^0.1.1",
+    "nodemailer": "^6.10.0",
+    "react": "^19.0.0",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.1",
+    "supabase": "^2.9.6",
+    "tailwindcss-animate": "^1.0.7",
+    "url-mon": "file:"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250124.3",
+    "@types/node": "^20.17.16",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.0.1",
+    "esbuild": "^0.19.12",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

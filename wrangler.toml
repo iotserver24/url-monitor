@@ -1,0 +1,24 @@
+name = "url-monitor"
+main = "dist/worker.js"
+compatibility_date = "2024-01-01"
+
+[triggers]
+crons = ["*/2 * * * *"]  # Run every 2 minutes
+
+[vars]
+MONGODB_URI = "https://monitor.megavault.in"
+SUPABASE_URL = "https://vwghbfjkofcnynxwadqx.supabase.co"
+SUPABASE_SERVICE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3Z2hiZmprb2ZjbnlueHdhZHF4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczODA3NjA0MywiZXhwIjoyMDUzNjUyMDQzfQ.OWln6AVw6YdUH7yftTIoNGKw0J_UPBWoXUaA5QvML9s"
+
+# Add these for better security
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+[env.production]
+vars = { APP_URL = "https://monitor.megavault.in" }
+
+[env.development]
+vars = { APP_URL = "http://localhost:3000" }
+
+[build]
+command = "npm run build:worker" 
